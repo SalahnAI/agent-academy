@@ -11,3 +11,6 @@ wheels/
 
 # Generated study notes
 notes/
+
+# Never commit API keys
+.env

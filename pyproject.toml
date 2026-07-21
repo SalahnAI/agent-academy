@@ -1,7 +1,7 @@
 [project]
 name = "agent-academy"
 version = "0.1.0"
-description = "A multi-agent AI tutor (planner, teacher, quizzer, coach) built with LangGraph human-in-the-loop and local LLMs via Ollama"
+description = "A multi-agent AI tutor (planner, teacher, quizzer, coach) powered by Claude (Anthropic API) and LangGraph human-in-the-loop"
 readme = "README.md"
 authors = [
     { name = "Salah", email = "salah-eddine.nifa@telecom-paris.fr" }
@@ -9,8 +9,9 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "langchain>=1.3.14",
-    "langchain-ollama>=1.1.0",
+    "langchain-anthropic>=1.4.8",
     "langgraph>=1.2.9",
+    "python-dotenv>=1.2.2",
     "rich>=15.0.0",
 ]
 

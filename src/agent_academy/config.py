@@ -3,10 +3,14 @@
 import os
 from pathlib import Path
 
-MODEL_NAME = os.getenv("ACADEMY_MODEL", "qwen3:8b")
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+from dotenv import load_dotenv
 
-TEMPERATURE = 0.4
+load_dotenv()  # picks up ANTHROPIC_API_KEY from a local .env if present
+
+MODEL_NAME = os.getenv("ACADEMY_MODEL", "claude-opus-4-8")
+
+# Room for a full lesson in one response.
+MAX_TOKENS = 8192
 
 # Language the lessons and quizzes are written in.
 LANGUAGE = os.getenv("ACADEMY_LANGUAGE", "English")

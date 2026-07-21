@@ -9,27 +9,21 @@
 
 import re
 
-from langchain_ollama import ChatOllama
+from langchain_anthropic import ChatAnthropic
 from langgraph.types import interrupt
 from pydantic import BaseModel, Field
 
 from .config import (
     LANGUAGE,
+    MAX_TOKENS,
     MODEL_NAME,
     NOTES_DIR,
     NUM_CONCEPTS,
     NUM_QUESTIONS,
-    OLLAMA_BASE_URL,
-    TEMPERATURE,
 )
 from .state import AcademyState
 
-llm = ChatOllama(
-    model=MODEL_NAME,
-    base_url=OLLAMA_BASE_URL,
-    temperature=TEMPERATURE,
-    reasoning=False,
-)
+llm = ChatAnthropic(model=MODEL_NAME, max_tokens=MAX_TOKENS)
 
 PLANNER_PROMPT = f"""You are a curriculum designer. Break the topic below into
 an ordered syllabus of exactly {NUM_CONCEPTS} concepts for one study session,
